@@ -173,3 +173,19 @@ button:hover {
     }
 
 }
+
+@media screen and (max-width: 600px) {
+    nav li a {
+      width: 70px;
+    }
+  
+    form {
+        flex-direction: column; /* Stapla fälten vertikalt */
+        border-radius: 5%;
+        margin-bottom: 20%;
+      }
+    
+      input {
+        flex: 1 1 100%; /* Input-fält tar hela bredden */
+      }
+  }
