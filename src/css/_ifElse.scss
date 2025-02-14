@@ -1,0 +1,9 @@
+$device: 'tablet';
+
+form {
+  @if $device == 'mobile' {
+    border-radius: 0;
+  } @else if $device == 'tablet' {
+    border-radius: 100px;
+  } 
+}
