@@ -1,10 +1,13 @@
 //första läget .. ljusa läget .. ändrar sig efter det operativa systemet tema 
 
 @use "ifElse";
+@use "sass:color";
 
 //varibel för lagring av färg .. ljusa läget o mörka läget
 $primary-color: #edb8946a;
 $color1: #c7833a;
+$color: #feb581;
+$color3: #939fe6;
 
 
 $secondary-color: #120b62;
@@ -43,7 +46,8 @@ img {
 }
 
 .sass-text {
-    margin-bottom: 6%;;
+    margin-bottom: 6%;
+    ;
 }
 
 
@@ -56,13 +60,15 @@ form {
 }
 
 
-table{
+table {
     @extend .sass-text;
     @extend form;
 }
 
-th, td {
-    border: 2px solid #000; /* kantlinjer */
+th,
+td {
+    border: 2px solid #000;
+    /* kantlinjer */
     padding: 10px;
     text-align: left;
 }
@@ -78,10 +84,10 @@ nav {
 
     li {
         display: inline-block;
-       
+
     }
 
-    a{
+    a {
         display: block;
         text-decoration: none;
         background-color: #f2cca4;
@@ -92,7 +98,7 @@ nav {
 }
 
 //mixin
-@mixin form ($size, $radius: 0){
+@mixin form ($size, $radius: 0) {
     width: $size;
     border-radius: $radius;
     margin: 25px;
@@ -108,7 +114,7 @@ button {
 
 // color function
 button:hover {
-    background-color: lighten(#feb581, 7%);
+    background-color: color.adjust($color, $lightness: 7%);
     color: $secondary-color;
 }
 
@@ -129,40 +135,41 @@ button:hover {
     }
 
 
-button {
-    @include form (100px, $radius: 5px);
-    background-color: #939fe6;
+    button {
+        @include form (100px, $radius: 5px);
+        background-color: #939fe6;
+    }
+
+    // color function
+    button:hover {
+        background-color: color.adjust($color3, $lightness: -15%);
+        color: $color2;
+    }
+
+    nav li a {
+        background-color: #8896e7;
+        color: $color2;
+        padding: 5%;
+        width: 85px;
+    }
+
+    .sass-text {
+        margin-bottom: 6%;
+        ;
+    }
+
+
+    //inheritance från .sass-text
+    form {
+        @extend .sass-text;
+        border: 2px solid white;
+        /* kantlinjer */
+    }
+
+
+    table {
+        @extend .sass-text;
+
+    }
+
 }
-
-// color function
-button:hover {
-    background-color: darken(#939fe6, 15%);
-    color: $color2;
-}
-
-nav li a{
-    background-color: #8896e7;
-    color: $color2;
-    padding: 5%;
-    width: 85px;
-}
-
-.sass-text {
-    margin-bottom: 6%;;
-}
-
-
-//inheritance från .sass-text
-form {
-    @extend .sass-text;
-    border: 2px solid white; /* kantlinjer */
-}
-
-
-table{
-    @extend .sass-text;
-   
-}
-    
-}
-
