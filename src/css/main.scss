@@ -155,12 +155,13 @@ nav li a{
 //inheritance från .sass-text
 form {
     @extend .sass-text;
+    border: 2px solid white; /* kantlinjer */
 }
 
 
 table{
     @extend .sass-text;
-
+   
 }
     
 }
