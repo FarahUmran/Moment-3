@@ -1,8 +1,14 @@
-
-
 //första läget .. ljusa läget .. ändrar sig efter det operativa systemet tema 
 
+//varibel för lagring av färg .. ljusa läget o mörka läget
 $primary-color: #edb8946a;
+$color1: #c7833a;
+
+
+$secondary-color: #120b62;
+$color2: #f9f9f9;
+
+
 
 body {
     background-color: $primary-color;
@@ -10,7 +16,7 @@ body {
 }
 
 h1 {
-    color: rgb(199, 131, 58);
+    color: $color1;
     text-align: center;
 }
 
@@ -20,32 +26,111 @@ p {
     padding: 0;
     margin: 0;
 }
+
 main {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrerar innehållet horisontellt */
+    align-items: center;
+    /* Centrerar innehållet horisontellt */
 }
 
 img {
     width: 500px;
     margin-top: 50px;
+    margin-right: 20px;
+}
+
+.sass-text {
+    margin-bottom: 3%;;
 }
 
 
+//inheritance från .sass-text
+form {
+    @extend .sass-text;
+}
+
+
+table{
+    @extend .sass-text;
+
+}
+
+th, td {
+    border: 2px solid #000; /* kantlinjer */
+    padding: 10px;
+    text-align: left;
+}
+
+//nesting
+nav {
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        display: inline-block;
+    }
+
+    a{
+        display: block;
+        text-decoration: none;
+    }
+}
+
+//mixin
+@mixin form ($size, $radius: 0){
+    width: $size;
+    border-radius: $radius;
+    margin: 25px;
+    padding: 15px;
+    font-size: large;
+
+}
+
+button {
+    @include form (100px, $radius: 5px);
+    background-color: #feb581;
+}
+
+// color function
+button:hover {
+    background-color: lighten(#feb581, 7%);
+    color: $secondary-color;
+}
 
 // mörka läget .. ändrar sig också efter det operativa systemets tema
- @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
     body {
-      background-color: #120b62;
-      color: #ffffff;
+        background-color: $secondary-color;
+        color: #ffffff;
     }
-  }
+
+    img {
+        opacity: 78%;
+    }
+
+    h1 {
+        color: $color2;
+        text-align: center;
+    }
 
 
-  
-//   @media (prefers-color-scheme: light) {
-//     body {
-//       background-color: #ffffff;
-//       color: #000000;
-//     }
-//   }
+button {
+    @include form (100px, $radius: 5px);
+    background-color: #939fe6;
+}
+
+// color function
+button:hover {
+    background-color: darken(#939fe6, 15%);
+    color: $color2;
+}
+
+
+    
+}
+
