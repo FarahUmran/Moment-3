@@ -2,6 +2,7 @@
 
 @use "ifElse";
 @use "sass:color";
+@use "darkmode";
 
 //varibel för lagring av färg .. ljusa läget o mörka läget
 $primary-color: #edb8946a;
@@ -13,6 +14,10 @@ $color3: #939fe6;
 $secondary-color: #120b62;
 $color2: #f9f9f9;
 
+
+header {
+    background-color: #f2cca4;
+}
 
 
 body {
@@ -47,7 +52,7 @@ img {
 
 .sass-text {
     margin-bottom: 6%;
-    ;
+    
 }
 
 
@@ -56,13 +61,14 @@ form {
     @extend .sass-text;
     // border-radius: 500px;
     border: 2px solid #000; //ram
-    padding: 2%
+    padding: 10%;
 }
 
 
 table {
     @extend .sass-text;
     @extend form;
+    padding: 3%;
 }
 
 th,
@@ -75,6 +81,10 @@ td {
 
 //nesting
 nav {
+
+    display: flex;
+    justify-content: center;
+    padding: 30px;
 
     ul {
         margin: 0;
@@ -90,11 +100,16 @@ nav {
     a {
         display: block;
         text-decoration: none;
-        background-color: #f2cca4;
-        padding: 5%;
+        padding: 7%;
         width: 85px;
         color: #000;
     }
+}
+
+a:hover {
+    color: whitesmoke;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    /* horisontell, vertikal, spridning .. färgen är svart me 50% opacitet */
 }
 
 //mixin
@@ -118,74 +133,21 @@ button:hover {
     color: $secondary-color;
 }
 
-// mörka läget .. ändrar sig efter det operativa systemets tema
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: $secondary-color;
-        color: #ffffff;
-    }
-
-    img {
-        opacity: 78%;
-    }
-
-    h1 {
-        color: $color2;
-        text-align: center;
-    }
-
-
-    button {
-        @include form (100px, $radius: 5px);
-        background-color: #939fe6;
-    }
-
-    // color function
-    button:hover {
-        background-color: color.adjust($color3, $lightness: -15%);
-        color: $color2;
-    }
-
-    nav li a {
-        background-color: #8896e7;
-        color: $color2;
-        padding: 5%;
-        width: 85px;
-    }
-
-    .sass-text {
-        margin-bottom: 6%;
-        ;
-    }
-
-
-    //inheritance från .sass-text
-    form {
-        @extend .sass-text;
-        border: 2px solid white;
-        /* kantlinjer */
-    }
-
-
-    table {
-        @extend .sass-text;
-
-    }
-
-}
 
 @media screen and (max-width: 600px) {
     nav li a {
-      width: 70px;
+        width: 70px;
     }
-  
+
     form {
-        flex-direction: column; /* Stapla fälten vertikalt */
+        flex-direction: column;
+        /* Stapla fälten vertikalt */
         border-radius: 5%;
         margin-bottom: 20%;
-      }
-    
-      input {
-        flex: 1 1 100%; /* Input-fält tar hela bredden */
-      }
-  }
+    }
+
+    input {
+        flex: 1 1 100%;
+        /* Input-fält tar hela bredden */
+    }
+}
