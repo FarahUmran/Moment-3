@@ -1,3 +1,7 @@
+
+// https://www.youtube.com/watch?v=flItyHiDm7E
+
+
 /* Grundläggande stilmallar för att ta bort standardmarginaler och paddning */
 * {
     margin: 0;
@@ -10,28 +14,21 @@
     display: none;
     /* Döljer hamburgarikonen som standard */
     cursor: pointer;
-    /* Visar en pekare när muspekaren är över ikonen */
     width: 30px;
-    /* Sätter bredden på ikonen */
     flex-direction: column;
     /* Radar elementen i en kolumn */
     justify-content: space-between;
     /* Jämnt fördelar utrymmet mellan elementen */
     margin: 20px;
-    /* Ger utrymme runt ikonen */
 }
 
 .hamburger .bar {
     height: 4px;
-    /* Sätter höjden på varje linje i ikonen */
     width: 27px;
     margin: 3px;
     background-color: #333;
-    /* Sätter bakgrundsfärgen på linjerna */
     border-radius: 4px;
-    /* Ger avrundade hörn till linjerna */
-    transition: 0.3s;
-    /* Lägger till en övergångseffekt */
+
 }
 
 /* Dölj checkboxen */
