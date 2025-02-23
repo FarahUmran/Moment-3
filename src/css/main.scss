@@ -2,9 +2,9 @@
 
 @use "ifElse";
 @use "sass:color";
-@use "darkmode";
 @use "media";
 @use "menu";
+@use "animering";
 
 
 // standard inställning
@@ -103,7 +103,7 @@ nav {
         padding: 0;
         list-style: none;
         display: flex;
-        width: 70%; 
+        width: 75%; 
         
     }
 
@@ -117,9 +117,10 @@ nav {
         display: block;
         text-decoration: none;
         padding: 7%;
-        width: 85px;
+        width: 150px;
         color: #000;
         font-size: 18px;
+        
     }
 }
 
@@ -151,3 +152,67 @@ button:hover {
 }
 
 
+
+
+// mörka läget .. ändrar sig efter det operativa systemets tema
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: $secondary-color;
+        color: #ffffff;
+    }
+
+    img {
+        opacity: 78%;
+    }
+
+    h1 {
+        color: $color2;
+        text-align: center;
+    }
+
+
+    button {
+        //  @include form (100px, $radius: 5px);
+        background-color: #939fe6;
+        border: 2px solid #000; //ram
+        margin-bottom: 6%;
+       
+    }
+
+    // color function
+    button:hover {
+        background-color: color.adjust($color3, $lightness: -15%);
+        color: $color2;
+    }
+
+    nav li a {
+        color: $color2;
+        padding: 5%;
+        width: 150px;
+    }
+
+    .sass-text {
+        margin-bottom: 6%;
+        
+    }
+
+
+    //inheritance från .sass-text
+    form {
+        @extend .sass-text;
+        border: 2px solid white;
+        /* kantlinjer */
+        
+    }
+
+
+    table {
+        @extend .sass-text;
+
+    }
+
+    header{
+        background-color: rgb(159, 179, 237);
+    }
+
+}
